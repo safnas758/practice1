@@ -5,32 +5,36 @@ package com.rit.coursesphere.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "courses")
-public class Course {
+@Table(name = "enrollments")
+public class Enrollment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
-    private String description;
-    private String category;
-    private String imageUrl;
+    private Long studentId;
+    private Long courseId;
+    private String enrolledAt;
+    private String progress;
+    private boolean completed;
 
-    public Course() {}
+    public Enrollment() {}
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
+    public Long getStudentId() { return studentId; }
+    public void setStudentId(Long studentId) { this.studentId = studentId; }
 
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public Long getCourseId() { return courseId; }
+    public void setCourseId(Long courseId) { this.courseId = courseId; }
 
-    public String getCategory() { return category; }
-    public void setCategory(String category) { this.category = category; }
+    public String getEnrolledAt() { return enrolledAt; }
+    public void setEnrolledAt(String enrolledAt) { this.enrolledAt = enrolledAt; }
 
-    public String getImageUrl() { return imageUrl; }
-    public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
+    public String getProgress() { return progress; }
+    public void setProgress(String progress) { this.progress = progress; }
+
+    public boolean isCompleted() { return completed; }
+    public void setCompleted(boolean completed) { this.completed = completed; }
 }
