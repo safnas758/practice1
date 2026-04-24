@@ -5,7 +5,7 @@ package com.rit.coursesphere.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "enrollments")
+@Table(name = ""enrollments"")
 public class Enrollment {
 
     @Id
