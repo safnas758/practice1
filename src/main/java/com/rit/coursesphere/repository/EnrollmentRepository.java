@@ -2,7 +2,7 @@
 
 package com.rit.coursesphere.repository;
 
-import com.rit.coursesphere.model.Course;
+import com.rit.coursesphere.model.Enrollment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -12,15 +12,15 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-public interface CourseRepository extends JpaRepository<Course, Long> {
+public interface EnrollmentRepository extends JpaRepository<Enrollment, Long> {
 
-    List<Course> findByTitle(String title);
+    List<Enrollment> findByStudentId(Long studentId);
 
-    @Query("SELECT c FROM Course c WHERE c.category = :category")
-    List<Course> findByCategory(@Param("category") String category);
+    @Query("SELECT e FROM Enrollment e WHERE e.courseId = :courseId")
+    List<Enrollment> findByCourseId(@Param("courseId") Long courseId);
 
     @Modifying
     @Transactional
-    @Query("UPDATE Course c SET c.title = :title WHERE c.id = :id")
-    void updateTitleById(@Param("id") Long id, @Param("title") String title);
+    @Query("UPDATE Enrollment e SET e.progress = :progress WHERE e.id = :id")
+    void updateProgressById(@Param("id") Long id, @Param("progress") String progress);
 }
