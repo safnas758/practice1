@@ -15,7 +15,9 @@ public class Course {
     private String title;
     private String description;
     private String category;
+    private Long instructorId;
     private String imageUrl;
+    private String createdAt;
 
     public Course() {}
 
@@ -31,6 +33,12 @@ public class Course {
     public String getCategory() { return category; }
     public void setCategory(String category) { this.category = category; }
 
+    public Long getInstructorId() { return instructorId; }
+    public void setInstructorId(Long instructorId) { this.instructorId = instructorId; }
+
     public String getImageUrl() { return imageUrl; }
     public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
+
+    public String getCreatedAt() { return createdAt; }
+    public void setCreatedAt(String createdAt) { this.createdAt = createdAt; }
 }
